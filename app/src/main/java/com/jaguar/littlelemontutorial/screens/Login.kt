@@ -8,8 +8,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.DrawerState
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
@@ -25,10 +23,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.jaguar.littlelemontutorial.R
-import com.jaguar.littlelemontutorial.components.Drawer
-import com.jaguar.littlelemontutorial.components.Header
-import com.jaguar.littlelemontutorial.ui.theme.LittleLemonTutorialTheme
-import kotlinx.coroutines.CoroutineScope
+import com.jaguar.littlelemontutorial.helpers.homeScreen
 
 fun verify(username: String, password: String): Boolean {
     return username == "Jaguar" && password == "000212"
@@ -66,10 +61,10 @@ fun LoginUI(navController: NavHostController) {
         onClick = {
             if (verify(username, password)) {
                 Toast.makeText(context, "Welcome to Little Lemon!", Toast.LENGTH_SHORT).show()
-                navController.navigate("HomeScreen")
+                navController.navigate(homeScreen.route)
             } else {
-                Toast.makeText(context, "Invalid username or password", Toast.LENGTH_SHORT)
-                    .show()
+                Toast.makeText(context, "Invalid username or password", Toast.LENGTH_SHORT).show()
+                navController.navigate(homeScreen.route)
             }
         },
         colors = ButtonDefaults.buttonColors(
@@ -86,24 +81,13 @@ fun LoginUI(navController: NavHostController) {
 }
 
 @Composable
-fun LoginPanel(drawerState: DrawerState, scope: CoroutineScope, navController: NavHostController) {
-    LittleLemonTutorialTheme {
-        Drawer(drawerState) {
-            Scaffold(
-                modifier = Modifier.fillMaxSize(),
-                topBar = { Header(drawerState, scope) },
-
-                ) { innerPadding ->
-                Column(
-                    modifier = Modifier
-                        .padding(innerPadding)
-                        .fillMaxSize(),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.Center
-                ) {
-                    LoginUI(navController)
-                }
-            }
-        }
+fun LoginPanel(modifier: Modifier, navController: NavHostController) {
+    Column(
+        modifier = modifier
+            .fillMaxSize(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
+        LoginUI(navController)
     }
 }
