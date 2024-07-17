@@ -15,3 +15,7 @@ object homeScreen : Destinations {
 object login : Destinations {
     override val route = "Login"
 }
+
+object dishDetailsPane : Destinations {
+    override val route = "DishDetailsPane"
+}

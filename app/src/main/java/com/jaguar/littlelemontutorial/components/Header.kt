@@ -1,7 +1,6 @@
 package com.jaguar.littlelemontutorial.components
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -68,7 +67,6 @@ fun Header(state: DrawerState, scope: CoroutineScope) {
         Modifier
             .height(83.dp)
             .fillMaxWidth()
-            .background(color = colorResource(id = R.color.black))
             .padding(top = 20.dp),
         contentAlignment = Alignment.TopCenter
 

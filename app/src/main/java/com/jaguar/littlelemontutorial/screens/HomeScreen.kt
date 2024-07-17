@@ -32,6 +32,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.jaguar.littlelemontutorial.R
 import com.jaguar.littlelemontutorial.components.DishCard
+import com.jaguar.littlelemontutorial.helpers.dishDetailsPane
 
 
 @Composable
@@ -96,7 +97,7 @@ fun UpperPanel(modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun Dishes(modifier: Modifier = Modifier) {
+fun Dishes(navController: NavHostController, modifier: Modifier = Modifier) {
     LazyVerticalGrid(columns = GridCells.Fixed(1), modifier = modifier) {
         items(5) {
             Column(
@@ -105,7 +106,9 @@ fun Dishes(modifier: Modifier = Modifier) {
             ) {
                 Box(modifier = Modifier
                     .padding(2.dp)
-                    .clickable { /*TODO*/ }) {
+                    .clickable {
+                        navController.navigate(dishDetailsPane.route)
+                    }) {
                     DishCard(
                         name = "Greek Salad",
                         description = "The famous Greek salad of crispy lettuce, peppers, olives, our Chicago ...",
@@ -115,7 +118,9 @@ fun Dishes(modifier: Modifier = Modifier) {
                 }
                 Box(modifier = Modifier
                     .padding(2.dp)
-                    .clickable { /*TODO*/ }) {
+                    .clickable {
+                        navController.navigate(dishDetailsPane.route)
+                    }) {
                     DishCard(
                         name = "Brushetta",
                         description = "Our Bruschetta is made from grilled bread that has been smeared with garlic and...",
@@ -125,7 +130,9 @@ fun Dishes(modifier: Modifier = Modifier) {
                 }
                 Box(modifier = Modifier
                     .padding(2.dp)
-                    .clickable { /*TODO*/ }) {
+                    .clickable {
+                        navController.navigate(dishDetailsPane.route)
+                    }) {
                     DishCard(
                         name = "Grilled Fish",
                         description = "Our grilled fish is a delicious and healthy option for those who want to eat ...",
@@ -135,7 +142,9 @@ fun Dishes(modifier: Modifier = Modifier) {
                 }
                 Box(modifier = Modifier
                     .padding(2.dp)
-                    .clickable { /*TODO*/ }) {
+                    .clickable {
+                        navController.navigate(dishDetailsPane.route)
+                    }) {
                     DishCard(
                         name = "Fried Calamari",
                         description = "Our Fried Calamari is a delicious and crispy appetizer that is perfect for ...",
@@ -152,7 +161,7 @@ fun Dishes(modifier: Modifier = Modifier) {
 fun HomeScreen(modifier: Modifier, navController: NavHostController) {
     Column(modifier = modifier) {
         UpperPanel()
-        Dishes()
+        Dishes(navController)
     }
 }
 

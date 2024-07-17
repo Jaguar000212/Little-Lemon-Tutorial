@@ -17,9 +17,11 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.jaguar.littlelemontutorial.components.Drawer
 import com.jaguar.littlelemontutorial.components.Header
+import com.jaguar.littlelemontutorial.helpers.dishDetailsPane
 import com.jaguar.littlelemontutorial.helpers.homeScreen
 import com.jaguar.littlelemontutorial.helpers.login
 import com.jaguar.littlelemontutorial.helpers.welcome
+import com.jaguar.littlelemontutorial.screens.DishDetails
 import com.jaguar.littlelemontutorial.screens.HomeScreen
 import com.jaguar.littlelemontutorial.screens.LoginPanel
 import com.jaguar.littlelemontutorial.screens.Welcome
@@ -67,6 +69,15 @@ fun MyNavigation() {
                             Modifier
                                 .padding(innerPadding),
                             navController = navController
+                        )
+                    }
+                    composable(dishDetailsPane.route) {
+                        DishDetails(
+                            dishImage = R.drawable.dish_1,
+                            dishName = "Pasta",
+                            dishDesc = "Pasta with white sauce",
+                            Modifier
+                                .padding(innerPadding)
                         )
                     }
                 }
