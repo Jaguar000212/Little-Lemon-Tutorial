@@ -79,16 +79,11 @@ fun UpperPanel(modifier: Modifier = Modifier) {
         Button(
             onClick = {
                 Toast.makeText(
-                    context,
-                    "Order received. Thank you!",
-                    Toast.LENGTH_SHORT
+                    context, "Order received. Thank you!", Toast.LENGTH_SHORT
                 ).show()
-            },
-            shape = RoundedCornerShape(10.dp),
-            colors = ButtonDefaults.buttonColors(
+            }, shape = RoundedCornerShape(10.dp), colors = ButtonDefaults.buttonColors(
                 containerColor = colorResource(id = R.color.yellow)
-            ),
-            modifier = Modifier.padding(horizontal = 20.dp)
+            ), modifier = Modifier.padding(horizontal = 20.dp)
         ) {
             Text(
                 text = "Order Take Away",
@@ -103,18 +98,53 @@ fun UpperPanel(modifier: Modifier = Modifier) {
 @Composable
 fun Dishes(modifier: Modifier = Modifier) {
     LazyVerticalGrid(columns = GridCells.Fixed(1), modifier = modifier) {
-        items(100) {
-            Box(modifier = Modifier.padding(2.dp)
-                .clickable { /*TODO*/ }) {
-                DishCard(
-                    name = "Greek Salad",
-                    description = "The famous Greek salad of crispy lettuce, peppers, olives, our Chicago ...",
-                    price = "$12.99",
-                    image = R.drawable.dish_1
-                )
+        items(5) {
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center,
+            ) {
+                Box(modifier = Modifier
+                    .padding(2.dp)
+                    .clickable { /*TODO*/ }) {
+                    DishCard(
+                        name = "Greek Salad",
+                        description = "The famous Greek salad of crispy lettuce, peppers, olives, our Chicago ...",
+                        price = "$12.99",
+                        image = R.drawable.dish_1
+                    )
+                }
+                Box(modifier = Modifier
+                    .padding(2.dp)
+                    .clickable { /*TODO*/ }) {
+                    DishCard(
+                        name = "Brushetta",
+                        description = "Our Bruschetta is made from grilled bread that has been smeared with garlic and...",
+                        price = "$9.99",
+                        image = R.drawable.dish_2
+                    )
+                }
+                Box(modifier = Modifier
+                    .padding(2.dp)
+                    .clickable { /*TODO*/ }) {
+                    DishCard(
+                        name = "Grilled Fish",
+                        description = "Our grilled fish is a delicious and healthy option for those who want to eat ...",
+                        price = "$15.99",
+                        image = R.drawable.dish_3
+                    )
+                }
+                Box(modifier = Modifier
+                    .padding(2.dp)
+                    .clickable { /*TODO*/ }) {
+                    DishCard(
+                        name = "Fried Calamari",
+                        description = "Our Fried Calamari is a delicious and crispy appetizer that is perfect for ...",
+                        price = "$11.99",
+                        image = R.drawable.dish_4
+                    )
+                }
             }
         }
-
     }
 }
 
