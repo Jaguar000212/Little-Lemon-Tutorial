@@ -93,11 +93,3 @@ fun DishDetails(
     }
 }
 
-
-//@Preview(showBackground = true)
-//@Composable
-//fun PreviewDetails() {
-//    DishDetails(
-//        dishImage = 0, dishName = "Dish Name", dishDesc = "Dish Description", modifier = Modifier
-//    )
-//}
